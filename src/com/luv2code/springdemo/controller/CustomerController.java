@@ -73,9 +73,8 @@ public class CustomerController {
 	public String showListForDelete(@RequestParam("customerId") int theID, Model theModel) {
  		 
 		//get the customer from the our service
-		Customer theCustomer = customerService.getCustomer(theID);
 		//set customer as a model attribute to pro-populate the form
- 		customerService.deleteCustomer(theCustomer);
+ 		customerService.deleteCustomer(theID);
 
 		// redirect to form
 		return "redirect:/customer/list";
