@@ -68,4 +68,17 @@ public class CustomerController {
 		return "redirect:/customer/list";
 	}
 	
+	
+	@GetMapping("/showListForDelete")
+	public String showListForDelete(@RequestParam("customerId") int theID, Model theModel) {
+ 		 
+		//get the customer from the our service
+		Customer theCustomer = customerService.getCustomer(theID);
+		//set customer as a model attribute to pro-populate the form
+ 		customerService.deleteCustomer(theCustomer);
+
+		// redirect to form
+		return "redirect:/customer/list";
+	}
+	
 }
